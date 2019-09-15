@@ -70,3 +70,14 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.moveOptions {
+    border: 1px solid red;
+    background-color: red;
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+}
+
+
+
+
