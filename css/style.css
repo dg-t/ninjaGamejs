@@ -1,17 +1,121 @@
+/* header and navBar*/
+.backgroundTitle {
+  background-image: url("../img/sunset.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.backgroundNav {
+  background-image: url("../img/sunset1.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.navbar {
+  color: white;
+}
+
+/* Fonts */
+.titleFont {
+font-family: 'Permanent Marker', cursive;
+font-size: 62px;
+}
+
+/* Fonts */
+.navFont {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 18px;
+  }
+
+body {
+  font-family: 'Concert One', cursive;
+  font-size: 14px;
+  }
+
+/* set background game */
+.row {
+  background-image: linear-gradient(rgb(250, 58, 58, 0.5), rgb(255, 255, 88, 0.5));
+}
+
 /* game map */
 #gameBoard {
-  width: 600px;
-  height: 600px;
-  position: relative;
+  width: 550px;
+  height: 550px;
+  padding-top: 15px;
 }
 
 .cellGrid {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   float: left;
   border: 1px solid black;
   background-color: white;
 }
+
+.center {
+  margin: auto;
+  width: 100%;
+}
+
+/* main images */
+.ninja1 {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  height: 400px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire */
+  margin-left: 5%;
+}
+
+.samurai1 {
+  height: 400px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire */
+}
+
+/* modify images when screen is smaller then 900px */
+@media only screen and (max-width: 1090px) {
+  .ninja1 {
+    margin-top: 5%;
+  }
+}
+
+@media only screen and (max-width: 1090px) {
+  .samurai1 {
+    height: 400px !important;
+    margin-left: 30%;
+    margin-top: 5%;
+  }
+}
+
+/* modify images when screen is smaller then 575px */
+@media only screen and (max-width: 575px) {
+  .ninja1 {
+    margin-left: 50%;
+    margin-bottom: 25px;
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .samurai1 {
+    margin-left: 50%;
+    margin-bottom: 25px;
+    margin-top: 25px;
+  }
+}
+
+/* attached gameBoard to screen when smaller then 800px */
+/* @media only screen and (max-width: 575px) {
+  #gameBoard {
+    margin-left: none;
+  }
+}
+*/
 
 /* Walls */
 .wall {
@@ -78,6 +182,36 @@
     cursor: pointer;
 }
 
+/* margins players box */
+.margins {
+  margin-top: 25px !important;
+  margin: auto;
+  width: 80%;
+  margin-bottom: 25px;
+  border-radius: 25px;
+}
+
+.btn {
+  border-radius: 15px;
+}
 
 
 
+/* buttons */
+
+.attack {
+  background-color: red;
+  color: white;
+}
+
+.defend {
+  background-color: green;
+  color: white;
+}
+
+
+.floatIcons {
+  width:40px;
+  height: 40px;
+  float: left;
+}
