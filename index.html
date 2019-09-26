@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+fegfergregre
 
 <head>
     <meta charset="UTF-8">
@@ -29,7 +30,7 @@
         <!-- Start NavBar -->
         <!-- NavBar -->
         <nav class="navbar navbar-expand-sm shadow justify-content-center backgroundNav mt-0">
-            
+
 
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNavBar">
@@ -64,105 +65,109 @@
                 </div>
                 <div>
                     <button type="button" id="kakashiA" class="btn text-light attack mb-2" value="attack" disabled>Attack</button>
-                    <button type="button" id="kakashiD" class="btn text-light defend mb-2" value="defend" disabled>Defend</button>
-                </div>
+                        <button type="button" id="kakashiD" class="btn text-light defend mb-2" value="defend" disabled>Defend</button>
+            </div>
+    </div>
+    <div>
+        <img src="img/ninja-2.png" alt="Ninja shadow" class="ninja1">
+    </div>
+    </div>
+
+    <div class="col-lg-6 m-0">
+        <div id="gameBoard" class="center">
+        </div>
+    </div>
+
+    <div class="col-lg-3 m-0">
+        <div class="bg-dark text-center margins">
+            <div class="mb-3 pt-3">
+                <h5 class="text-light" style='display:inline'>MightyGuy`s life:</h5>
+                <p id="mightyGuyLife" class="text-light btn btn-primary" style="display:inline">100</p>
             </div>
             <div>
-                <img src="img/ninja-2.png" alt="Ninja shadow" class="ninja1">
+                <button type="button" id="mightyGuyA" class="btn text-light attack mb-2" value="attack" disabled>Attack</button>
+                <button type="button" id="mightyGuyD" class="btn text-light defend mb-2" value="defend" disabled>Defend</button>
             </div>
         </div>
-
-        <div class="col-lg-6 m-0">
-            <div id="gameBoard" class="center">
-            </div>
+        <div>
+            <img src="img/samurai-1.png" alt="Samurai shadow" class="samurai1 ml-5">
         </div>
+    </div>
 
-        <div class="col-lg-3 m-0">
-            <div class="bg-dark text-center margins">
-                <div class="mb-3 pt-3">
-                    <h5 class="text-light" style='display:inline'>MightyGuy`s life:</h5>
-                    <p id="mightyGuyLife" class="text-light btn btn-primary" style="display:inline">100</p>
-                </div>
-                <div>
-                    <button type="button" id="mightyGuyA" class="btn text-light attack mb-2" value="attack" disabled>Attack</button>
-                    <button type="button" id="mightyGuyD" class="btn text-light defend mb-2" value="defend" disabled>Defend</button>
-                </div>
-            </div>
-            <div>
-                <img src="img/samurai-1.png" alt="Samurai shadow" class="samurai1 ml-5">
-            </div>
-        </div>
-
-        <!--Game rules Modal-->
-			<div class="modal fade" id="gameRules">
-                    <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header text-center">
-                                <h5 class="modal-title text-center center">Game Rules</h5>
-                                <button type="button" class="close" data-dismiss="modal">
+    <!--Game rules Modal-->
+    <div class="modal fade" id="gameRules">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title text-center center">Game Rules</h5>
+                    <button type="button" class="close" data-dismiss="modal">
                                     <span>&times;</span>
                                 </button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <ul class="mt-3 ml-3 mr-5">
-                                    <li>4 weapons, each with different damage inflicted, will be placed randomly on the map,  and can be collected by players who pass through.</li>
-                                        <li>The default weapon inflict 10 points of damage.</li>
-                                        <li>The placement of the two players is also randomly on the map when the game loads.</li>
-                                        <li>For each turn, a player can move from one to three boxes (horizontally or vertically).</li>
-                                        <li>If a player passes over a box containing a weapon, they leave their current weapon on site and replace it with the new one.</li>
-                                        <br>
-                                        <li>If players cross over adjacent squares (horizontally or vertically), a battle begins.</li>
-                                        <ul>
-                                            <li>Each player attacks in turn.</li>
-                                            <li>The damage depends on the player's weapon.</li>        
-                                            <li>The player can choose to attack or defend against the next shot.</li>
-                                            <li>If the player chooses to defend themselves, they sustain 50% less damage than normal.</li>       
-                                            <li>As soon as the life points of a player falls to 0, they lose.</li>
-                                        </ul>
-                                    </ul>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+                <div class="modal-body text-center">
+                    <ul class="mt-3 ml-3 mr-5">
+                        <li>4 weapons, each with different damage inflicted, will be placed randomly on the map, and can be collected by players who pass through.</li>
+                        <li>The default weapon inflict 10 points of damage.</li>
+                        <li>The placement of the two players is also randomly on the map when the game loads.</li>
+                        <li>For each turn, a player can move from one to three boxes (horizontally or vertically).</li>
+                        <li>If a player passes over a box containing a weapon, they leave their current weapon on site and replace it with the new one.</li>
+                        <br>
+                        <li>If players cross over adjacent squares (horizontally or vertically), a battle begins.</li>
+                        <ul>
+                            <li>Each player attacks in turn.</li>
+                            <li>The damage depends on the player's weapon.</li>
+                            <li>The player can choose to attack or defend against the next shot.</li>
+                            <li>If the player chooses to defend themselves, they sustain 50% less damage than normal.</li>
+                            <li>As soon as the life points of a player falls to 0, they lose.</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                <!--Game weapons modal-->
-			<div class="modal fade" id="gameWeapons">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header text-center">
-                                <h5 class="modal-title text-center center">Know your weapons</h5>
-                                <button type="button" class="close" data-dismiss="modal">
+    <!--Game weapons modal-->
+    <div class="modal fade" id="gameWeapons">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title text-center center">Know your weapons</h5>
+                    <button type="button" class="close" data-dismiss="modal">
                                     <span>&times;</span>
                                 </button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="img/katana.png" alt="Katana" class="floatIcons mr-4 mb-3"><p class="mt-2 ml-5">Katana: damage 35</p>
-                                <img src="img/shuriken.png" alt="shuriken" class="floatIcons mr-4 mb-3"><p class="mt-2 ml-5">shuriken: damage 30</p>
-                                <img src="img/sai.png" alt="sai" class="floatIcons mr-4 mb-3"><p class="mt-2 ml-5">Sai: damage 20</p>
-                                <img src="img/kunai.png" alt="kunai" class="floatIcons mr-4 mb-3"><p class="mt-2 ml-5">Kunai: damage 15</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+                <div class="modal-body">
+                    <img src="img/katana.png" alt="Katana" class="floatIcons mr-4 mb-3">
+                    <p class="mt-2 ml-5">Katana: damage 35</p>
+                    <img src="img/shuriken.png" alt="shuriken" class="floatIcons mr-4 mb-3">
+                    <p class="mt-2 ml-5">shuriken: damage 30</p>
+                    <img src="img/sai.png" alt="sai" class="floatIcons mr-4 mb-3">
+                    <p class="mt-2 ml-5">Sai: damage 20</p>
+                    <img src="img/kunai.png" alt="kunai" class="floatIcons mr-4 mb-3">
+                    <p class="mt-2 ml-5">Kunai: damage 15</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                <!-- Footer -->
+    <!-- Footer -->
     <footer class="page-footer footer mt-5 w-100">
 
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3 bg-dark text-light">© 2019 More projects at:
-                <a href="https://github.com/dg-t"> Thomas@OpenClassRooms</a>
-            </div>
-        </footer>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 bg-dark text-light">© 2019 More projects at:
+            <a href="https://github.com/dg-t"> Thomas@OpenClassRooms</a>
+        </div>
+    </footer>
 
-        <script src="js/gameGenerator.js"></script>
-        <script src="js/movement.js"></script>
-        <script src="js/fight.js"></script>
+    <script src="js/gameGenerator.js"></script>
+    <script src="js/movement.js"></script>
+    <script src="js/fight.js"></script>
 
 </body>
 
