@@ -261,6 +261,3 @@ cell.on("click", function() {
   }
 });
 
-function startCombat() {
-  //some code here
-}
