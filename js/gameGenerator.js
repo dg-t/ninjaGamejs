@@ -17,7 +17,7 @@ function createBoard(cells) {
 }
 
 // Function for find available cell to position objects
-function aviableCell() {
+function availableCell() {
     do {
         findCell = Math.floor(Math.random() * cells);
     }
@@ -30,10 +30,10 @@ function Wall(name, image) {
     this.name = name;
     this.image = image;
 }
-
+/* */
 Wall.prototype.cellPosition = function() {
     for (x = 0; x < 15; x++) {
-        findCell = aviableCell();
+        findCell = availableCell();
         arrayCells[findCell] = this.name;
 
         var myCell = document.getElementById(findCell);
@@ -52,14 +52,18 @@ function Player(name, image) {
 }
 
 Player.prototype.cellPosition = function() {
-    findCell = aviableCell();
+    findCell = availableCell();
     arrayCells[findCell] = this.name;
 
     var myCell = document.getElementById(findCell);
     myCell.classList.add(this.name);
 
+    // set player as image
+    myCell.innerHTML = '<img src="img/' + this.image + '></img>';
+
     // function to keep players separate
     var collisionCell = [findCell - 1, findCell + 1, findCell - 10, findCell + 10];
+
     collisionCell.forEach(avoidCollision);
 
     function avoidCollision(collision) {
@@ -78,7 +82,7 @@ function Weapon(name, image, damage) {
 }
 
 Weapon.prototype.cellPosition = function() {
-    findCell = aviableCell();
+    findCell = availableCell();
     arrayCells[findCell] = this.name;
 
     var myCell = document.getElementById(findCell);

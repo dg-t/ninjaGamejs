@@ -11,7 +11,7 @@ Player.prototype.moveOptions = function(playerPosition) {
     // delete class after player move
     $("div#gameBoard > div").removeClass("moveOptions");
 
-    //arrays X and Y for movment
+    //arrays X and Y for movement
     arrayX = [];
     arrayY = [];
     //variables for find the position
@@ -174,6 +174,7 @@ Player.prototype.activePlayer = function() {
         activePlayer.moveOptions(this.position);
     }
 };
+
 // player start
 player1.activePlayer();
 
@@ -246,6 +247,7 @@ function findWeapon(findFrom, findTo) {
             passedCells.removeClass(newWeapon);
             passedCells.addClass(currentWeapon);
             activePlayer.weapon = newWeapon;
+            $("#" + activePlayer.name + "damage").text(activePlayer.damage);
         }
     }
 }

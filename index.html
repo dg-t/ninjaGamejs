@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>turn-based board game</title>
     <link rel="icon" type="image/png" href="img/yin-yang.png">
     <meta name="description" content="turn-based board game">
@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="css/bootstrap-select.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Righteous|Shadows+Into+Light&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Concert+One|Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker%7CRighteous%7CShadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One%7CFredoka+One&display=swap" rel="stylesheet">
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src='js/bootstrap.bundle.min.js'></script>
-    <script type="text/javascript" src='js/bootstrap-select.min.js'></script>
+    <script src='js/bootstrap.bundle.min.js'></script>
+    <script src='js/bootstrap-select.min.js'></script>
 </head>
 
 <body>
@@ -38,13 +38,14 @@
             <div class="collapse navbar-collapse text-center" id="collapseNavBar">
                 <ul class="navbar-nav w-100 justify-content-around">
                     <li class="nav-item">
-                        <button type="button" class="btn text-light navFont" data-toggle="modal" data-target="#gameRules">Rules</a>
+                        <button type="button" class="btn text-light navFont" data-toggle="modal" data-target="#gameRules">Rules</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn text-light navFont" onclick="location.reload();">New game</a>
+                        <button type="button" class="btn text-light navFont" onclick="location.reload();">New
+                            game</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn text-light navFont" data-toggle="modal" data-target="#gameWeapons">Weapons</a>
+                        <button type="button" class="btn text-light navFont" data-toggle="modal" data-target="#gameWeapons">Weapons</button>
                     </li>
                 </ul>
             </div>
@@ -53,55 +54,15 @@
         <!-- End header -->
     </div>
 
-    <!-- Game layout -->
-    <div class="row">
-
-        <div class="col-lg-3 m-0">
-            <div class="bg-dark text-center margins">
-                <div class="mb-3 pt-3">
-                    <h5 class="text-light" style='display:inline'>Kakashi`s life:</h5>
-                    <p id="kakashiLife" class="text-light btn btn-primary" style="display:inline">100</p>
-                </div>
-                <div>
-                    <button type="button" id="kakashiA" class="btn text-light attack mb-2" value="attack" disabled>Attack</button>
-                        <button type="button" id="kakashiD" class="btn text-light defend mb-2" value="defend" disabled>Defend</button>
-            </div>
-    </div>
-    <div>
-        <img src="img/ninja-2.png" alt="Ninja shadow" class="ninja1">
-    </div>
-    </div>
-
-    <div class="col-lg-6 m-0">
-        <div id="gameBoard" class="center">
-        </div>
-    </div>
-
-    <div class="col-lg-3 m-0">
-        <div class="bg-dark text-center margins">
-            <div class="mb-3 pt-3">
-                <h5 class="text-light" style='display:inline'>MightyGuy`s life:</h5>
-                <p id="mightyGuyLife" class="text-light btn btn-primary" style="display:inline">100</p>
-            </div>
-            <div>
-                <button type="button" id="mightyGuyA" class="btn text-light attack mb-2" value="attack" disabled>Attack</button>
-                <button type="button" id="mightyGuyD" class="btn text-light defend mb-2" value="defend" disabled>Defend</button>
-            </div>
-        </div>
-        <div>
-            <img src="img/samurai-1.png" alt="Samurai shadow" class="samurai1 ml-5">
-        </div>
-    </div>
-
-    <!--Game rules Modal-->
+    <!-- NavBar rules Modal -->
     <div class="modal fade" id="gameRules">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h5 class="modal-title text-center center">Game Rules</h5>
                     <button type="button" class="close" data-dismiss="modal">
-                                    <span>&times;</span>
-                                </button>
+                        <span>&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body text-center">
                     <ul class="mt-3 ml-3 mr-5">
@@ -110,15 +71,16 @@
                         <li>The placement of the two players is also randomly on the map when the game loads.</li>
                         <li>For each turn, a player can move from one to three boxes (horizontally or vertically).</li>
                         <li>If a player passes over a box containing a weapon, they leave their current weapon on site and replace it with the new one.</li>
-                        <br>
-                        <li>If players cross over adjacent squares (horizontally or vertically), a battle begins.</li>
-                        <ul>
-                            <li>Each player attacks in turn.</li>
-                            <li>The damage depends on the player's weapon.</li>
-                            <li>The player can choose to attack or defend against the next shot.</li>
-                            <li>If the player chooses to defend themselves, they sustain 50% less damage than normal.</li>
-                            <li>As soon as the life points of a player falls to 0, they lose.</li>
-                        </ul>
+                        <li class="mt-3">If players cross over adjacent squares (horizontally or vertically), a battle begins.
+                            <ul>
+                                <li>Each player attacks in turn.</li>
+                                <li>The damage depends on the player's weapon.</li>
+                                <li>The player can choose to attack or defend against the next shot.</li>
+                                <li>If the player chooses to defend themselves, they sustain 50% less damage than normal.
+                                </li>
+                                <li>As soon as the life points of a player falls to 0, they lose.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <div class="modal-footer">
@@ -128,15 +90,15 @@
         </div>
     </div>
 
-    <!--Game weapons modal-->
+    <!-- NavBar weapons modal -->
     <div class="modal fade" id="gameWeapons">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h5 class="modal-title text-center center">Know your weapons</h5>
                     <button type="button" class="close" data-dismiss="modal">
-                                    <span>&times;</span>
-                                </button>
+                        <span>&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <img src="img/katana.png" alt="Katana" class="floatIcons mr-4 mb-3">
@@ -154,9 +116,79 @@
             </div>
         </div>
     </div>
+    <!-- Game layout -->
+    <div class="row">
+
+        <div class="col-lg-3 m-0">
+            <div class="bg-dark text-center margins">
+                <div class="pt-3">
+                    <h5 class="text-light mb-5" style='display:inline'>Kakashi`s life:</h5>
+                    <p id="kakashiLife" class="text-light btn btn-primary" style="display:inline">100</p>
+                </div>
+                <div class="mb-3 pt-2">
+                    <h5 class="text-light" style="display:inline">Damage:</h5>
+                    <p id="kakashidamage" class="text-light" style="display:inline">10</p>
+                </div>
+                <div>
+                    <button type="button" id="kakashiA" class="btn text-light attack mb-2" value="attack" disabled onclick="attack()">Attack</button>
+                    <button type="button" id="kakashiD" class="btn text-light defend mb-2" value="defend" disabled onclick="defend()">Defend</button>
+                </div>
+            </div>
+            <div>
+                <img src="img/ninja-2.png" alt="Ninja shadow" class="ninja1">
+            </div>
+        </div>
+
+        <div class="col-lg-6 m-0">
+            <div id="gameBoard" class="center">
+            </div>
+        </div>
+
+        <div class="col-lg-3 m-0">
+            <div class="bg-dark text-center margins">
+                <div class="pt-3">
+                    <h5 class="text-light" style='display:inline'>MightyGuy`s life:</h5>
+                    <p id="mightyGuyLife" class="text-light btn btn-primary" style="display:inline">100</p>
+                </div>
+                <div class="mb-3 pt-2">
+                    <h5 class="text-light" style="display:inline">Damage:</h5>
+                    <p id="mightyGuydamage" class="text-light" style="display:inline">10</p>
+                </div>
+                <div>
+                    <button type="button" id="mightyGuyA" class="btn text-light attack mb-2" value="attack" disabled onclick="attack()">Attack</button>
+                    <button type="button" id="mightyGuyD" class="btn text-light defend mb-2" value="defend" disabled onclick="defend()">Defend</button>
+                </div>
+            </div>
+            <div>
+                <img src="img/samurai-1.png" alt="Samurai shadow" class="samurai1 ml-5">
+            </div>
+        </div>
+    </div>
+
+    <!-- Game over modal-->
+    <div class="modal fade" id="gameOver">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center center">Game Over!</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center center">
+                    <p>The Winner is</p>
+                    <p><img src="" width="150px" id="winner" alt="winner"></p>
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class=" btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="page-footer footer mt-5 w-100">
+    <footer class="page-footer footer w-100">
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3 bg-dark text-light">© 2019 More projects at:
