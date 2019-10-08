@@ -101,13 +101,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img src="img/katana.png" alt="Katana" class="floatIcons mr-4 mb-3">
+                    <img src="img/katana.svg" alt="Katana" class="floatIcons mr-4 mb-3">
                     <p class="mt-2 ml-5">Katana: damage 35</p>
-                    <img src="img/shuriken.png" alt="shuriken" class="floatIcons mr-4 mb-3">
+                    <img src="img/shuriken.svg" alt="shuriken" class="floatIcons mr-4 mb-3">
                     <p class="mt-2 ml-5">shuriken: damage 30</p>
-                    <img src="img/sai.png" alt="sai" class="floatIcons mr-4 mb-3">
+                    <img src="img/sai.svg" alt="sai" class="floatIcons mr-4 mb-3">
                     <p class="mt-2 ml-5">Sai: damage 20</p>
-                    <img src="img/kunai.png" alt="kunai" class="floatIcons mr-4 mb-3">
+                    <img src="img/kunai.svg" alt="kunai" class="floatIcons mr-4 mb-3">
                     <p class="mt-2 ml-5">Kunai: damage 15</p>
                 </div>
                 <div class="modal-footer">
@@ -122,20 +122,20 @@
         <div class="col-lg-3 m-0">
             <div class="bg-dark text-center margins">
                 <div class="pt-3">
-                    <h5 class="text-light mb-5" style='display:inline'>Kakashi`s life:</h5>
-                    <p id="kakashiLife" class="text-light btn btn-primary" style="display:inline">100</p>
+                    <h5 class="text-light infoPlayer mb-5">Kakashi`s life:</h5>
+                    <p id="kakashiLife" class="text-light btn btn-primary infoPlayer">100</p>
                 </div>
                 <div class="mb-3 pt-2">
-                    <h5 class="text-light" style="display:inline">Damage:</h5>
-                    <p id="kakashidamage" class="text-light" style="display:inline">10</p>
+                    <h5 class="text-light infoPlayer">Damage:</h5>
+                    <p id="kakashidamage" class="text-light infoPlayer">10</p>
                 </div>
                 <div>
                     <button type="button" id="kakashiA" class="btn text-light attack mb-2" value="attack" disabled onclick="attack()">Attack</button>
                     <button type="button" id="kakashiD" class="btn text-light defend mb-2" value="defend" disabled onclick="defend()">Defend</button>
                 </div>
             </div>
-            <div>
-                <img src="img/ninja-2.png" alt="Ninja shadow" class="ninja1">
+            <div class="d-none d-lg-block">
+                <img src="img/ninja-1.png" alt="Ninja shadow" class="ninja1">
             </div>
         </div>
 
@@ -147,19 +147,19 @@
         <div class="col-lg-3 m-0">
             <div class="bg-dark text-center margins">
                 <div class="pt-3">
-                    <h5 class="text-light" style='display:inline'>MightyGuy`s life:</h5>
-                    <p id="mightyGuyLife" class="text-light btn btn-primary" style="display:inline">100</p>
+                    <h5 class="text-light infoPlayer">MightyGuy`s life:</h5>
+                    <p id="mightyGuyLife" class="text-light btn btn-primary infoPlayer">100</p>
                 </div>
                 <div class="mb-3 pt-2">
-                    <h5 class="text-light" style="display:inline">Damage:</h5>
-                    <p id="mightyGuydamage" class="text-light" style="display:inline">10</p>
+                    <h5 class="text-light infoPlayer">Damage:</h5>
+                    <p id="mightyGuydamage" class="text-light infoPlayer">10</p>
                 </div>
                 <div>
                     <button type="button" id="mightyGuyA" class="btn text-light attack mb-2" value="attack" disabled onclick="attack()">Attack</button>
                     <button type="button" id="mightyGuyD" class="btn text-light defend mb-2" value="defend" disabled onclick="defend()">Defend</button>
                 </div>
             </div>
-            <div>
+            <div class="d-none d-lg-block">
                 <img src="img/samurai-1.png" alt="Samurai shadow" class="samurai1 ml-5">
             </div>
         </div>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="modal-body text-center center">
                     <p>The Winner is</p>
-                    <p><img src="" width="150px" id="winner" alt="winner"></p>
+                    <div class="winnerSize" id="winner"></div>
                     <p></p>
                 </div>
                 <div class="modal-footer">
@@ -189,7 +189,6 @@
 
     <!-- Footer -->
     <footer class="page-footer footer w-100">
-
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3 bg-dark text-light">© 2019 More projects at:
             <a href="https://github.com/dg-t"> Thomas@OpenClassRooms</a>

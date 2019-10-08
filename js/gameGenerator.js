@@ -58,8 +58,6 @@ Player.prototype.cellPosition = function() {
     var myCell = document.getElementById(findCell);
     myCell.classList.add(this.name);
 
-    // set player as image
-    myCell.innerHTML = '<img src="img/' + this.image + '></img>';
 
     // function to keep players separate
     var collisionCell = [findCell - 1, findCell + 1, findCell - 10, findCell + 10];
@@ -91,15 +89,15 @@ Weapon.prototype.cellPosition = function() {
 
 // Create objects
 // walls
-var wall = new Wall("wall", "blackWall.png");
+var wall = new Wall("wall", "blackWall.svg");
 // players
-var player1 = new Player("kakashi", "ninja.png");
-var player2 = new Player("mightyGuy", "samurai.png")
-    // weapons
-var weapon1 = new Weapon("shuriken", "Shuriken.png", 30);
-var weapon2 = new Weapon("katana", "katana.png", 35);
-var weapon3 = new Weapon("kunai", "kunai.png", 15);
-var weapon4 = new Weapon("sai", "sai.png", 20);
+var player1 = new Player("kakashi", "ninja.svg");
+var player2 = new Player("mightyGuy", "samurai.svg");
+// weapons
+var weapon1 = new Weapon("shuriken", "shuriken.svg", 30);
+var weapon2 = new Weapon("katana", "katana.svg", 35);
+var weapon3 = new Weapon("kunai", "kunai.svg", 15);
+var weapon4 = new Weapon("sai", "sai.svg", 20);
 
 // Call functions
 // create game

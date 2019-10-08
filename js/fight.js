@@ -4,21 +4,29 @@ var kakashiD = $("#kakashiD");
 var mightyGuyA = $("#mightyGuyA");
 var mightyGuyD = $("#mightyGuyD");
 
-
+// start fight
 function startCombat() {
     if (activePlayer === player1) {
+        diableButton();
         kakashiA.removeAttr("disabled");
         kakashiD.removeAttr("disabled");
-        mightyGuyA.attr("disabled", "disabled");
-        mightyGuyD.attr("disabled", "disabled");
     } else {
+        diableButton();
         mightyGuyA.removeAttr("disabled");
         mightyGuyD.removeAttr("disabled");
-        kakashiA.attr("disabled", "disabled");
-        kakashiD.attr("disabled", "disabled");
     }
 }
 
+// disable all buttons
+function diableButton() {
+    var disableA = $(".attack");
+    var disableD = $(".defend");
+
+    disableA.attr("disabled", "disabled");
+    disableD.attr("disabled", "disabled");
+}
+
+// Attack opponent
 function attack() {
     if (passivePlayer.protected === true) {
         passivePlayer.life -= activePlayer.damage / 2;
@@ -38,19 +46,18 @@ function attack() {
             activePlayer.name = "mightyGuy";
         }
         $("#gameOver .modal-body p:nth-child(3)").text(activePlayer.name);
-        $("#winner").attr("src", "img/" + activePlayer.image);
+        var winnerImage = "img/" + activePlayer.image;
+        $("#winner").css("background-image", "url(" + winnerImage + ")");
         $("#gameOver").modal();
         $("div#gameBoard > div").removeClass('moveOptions');
-        kakashiA.attr("disabled", "disabled");
-        kakashiD.attr("disabled", "disabled");
-        mightyGuyA.attr("disabled", "disabled");
-        mightyGuyD.attr("disabled", "disabled");
+        diableButton();
     } else {
         passivePlayer.activePlayer();
         startCombat();
     }
 };
 
+// defend from opponent
 function defend() {
     activePlayer.protected = true;
     passivePlayer.activePlayer();

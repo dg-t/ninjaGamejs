@@ -24,12 +24,12 @@ Player.prototype.moveOptions = function(playerPosition) {
     var xMax = xMin + 9;
 
     // Function to check class in specific div
+
     function checkClass() {
         $.each(classList, function(index, cssClass) {
             if (
                 cssClass === "wall" ||
-                cssClass === "kakashi" ||
-                cssClass === "mightyGuy"
+                cssClass == passivePlayer.name
             ) {
                 blocked = true;
             }
@@ -134,19 +134,17 @@ Player.prototype.moveCell = function(newPosition) {
 
     switch (this.name) {
         case "kakashi":
-            newCell.innerHTML =
-                "<img src='img/" + this.image + "' height='55'></img>";
+            newCell.classList.add("kakashi");
             break;
         case "mightyGuy":
-            newCell.innerHTML =
-                "<img src='img/" + this.image + "' height='55'></img>";
+            newCell.classList.add("mightyGuy");
             break;
     }
     oldCell.innerHTML = "";
 
     // check if players are next
     $.each(cellContact, function(index, contact) {
-        if ($("#" + contact).find("img").length) {
+        if ($("#" + contact).hasClass("kakashi") || $("#" + contact).hasClass("mightyGuy")) {
             combat = true;
         }
     });
