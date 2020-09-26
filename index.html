@@ -41,8 +41,7 @@
                         <button type="button" class="btn text-light navFont" data-toggle="modal" data-target="#gameRules">Rules</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn text-light navFont" onclick="location.reload();">New
-                            game</button>
+                        <button type="button" class="btn text-light navFont" onclick="location.reload();">New game</button>
                     </li>
                     <li class="nav-item">
                         <button type="button" class="btn text-light navFont" data-toggle="modal" data-target="#gameWeapons">Weapons</button>
@@ -130,8 +129,8 @@
                     <p id="kakashidamage" class="text-light infoPlayer">10</p>
                 </div>
                 <div>
-                    <button type="button" id="kakashiA" class="btn text-light attack mb-2" value="attack" disabled onclick="attack()">Attack</button>
-                    <button type="button" id="kakashiD" class="btn text-light defend mb-2" value="defend" disabled onclick="defend()">Defend</button>
+                    <button type="button" id="kakashiA" class="btn text-light attack mb-2" value="attack" disabled onclick="startFight.attack()">Attack</button>
+                    <button type="button" id="kakashiD" class="btn text-light defend mb-2" value="defend" disabled onclick="startFight.defend()">Defend</button>
                 </div>
             </div>
             <div class="d-none d-lg-block">
@@ -155,8 +154,8 @@
                     <p id="mightyGuydamage" class="text-light infoPlayer">10</p>
                 </div>
                 <div>
-                    <button type="button" id="mightyGuyA" class="btn text-light attack mb-2" value="attack" disabled onclick="attack()">Attack</button>
-                    <button type="button" id="mightyGuyD" class="btn text-light defend mb-2" value="defend" disabled onclick="defend()">Defend</button>
+                    <button type="button" id="mightyGuyA" class="btn text-light attack mb-2" value="attack" disabled onclick="startFight.attack()">Attack</button>
+                    <button type="button" id="mightyGuyD" class="btn text-light defend mb-2" value="defend" disabled onclick="startFight.defend()">Defend</button>
                 </div>
             </div>
             <div class="d-none d-lg-block">
@@ -171,9 +170,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-center center">Game Over!</h5>
+                    <!-- 
                     <button type="button" class="close" data-dismiss="modal">
                         <span>&times;</span>
-                    </button>
+                    </button> 
+                    -->
                 </div>
                 <div class="modal-body text-center center">
                     <p>The Winner is</p>
@@ -181,7 +182,9 @@
                     <p></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class=" btn btn-danger" data-dismiss="modal">Close</button>
+                    <p class="m-0 pr-2">Play again?</p>
+                    <button type="button" class=" btn btn-danger" data-dismiss="modal">No, thanks!</button>
+                    <button type="button" class="btn btn-primary" onclick="location.reload();">Yes, please!</button>
                 </div>
             </div>
         </div>
@@ -196,8 +199,8 @@
     </footer>
 
     <script src="js/gameGenerator.js"></script>
-    <script src="js/movement.js"></script>
     <script src="js/fight.js"></script>
+    <script src="js/movement.js"></script>
 
 </body>
 

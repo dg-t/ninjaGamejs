@@ -170,14 +170,14 @@ body {
 
 /* display player possible movement */
 
-.moveOptions {
+.movementOption {
     border: 1px solid rgb(255, 0, 0);
     background-color: rgb(152, 203, 253);
     box-shadow: 0 0 10px black;
     cursor: pointer;
 }
 
-.moveOptions:hover {
+.movementOption:hover {
     opacity: 0.8;
 }
 
@@ -277,7 +277,7 @@ body {
         background-repeat: no-repeat;
         background-position: center;
     }
-    .moveOptions {
+    .movementOption {
         border: 1px solid rgb(255, 0, 0);
         background-color: rgb(152, 203, 253);
         cursor: pointer;
@@ -342,7 +342,7 @@ body {
         background-repeat: no-repeat;
         background-position: center;
     }
-    .moveOptions {
+    .movementOption {
         border: 1px solid rgb(255, 0, 0);
         background-color: rgb(152, 203, 253);
         cursor: pointer;
@@ -407,7 +407,7 @@ body {
         background-repeat: no-repeat;
         background-position: center;
     }
-    .moveOptions {
+    .movementOption {
         border: 1px solid rgb(255, 0, 0);
         background-color: rgb(152, 203, 253);
         cursor: pointer;

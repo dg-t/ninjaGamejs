@@ -1,114 +1,124 @@
 // Variables
-// for game board 
-var board = document.getElementById("gameBoard");
-var cells = 100;
-// for objects in game board
-var arrayCells = [];
-var findCell;
+const cells = 100;
+const arrayCells = [];
+let findCell;
 
 // Create game board function
-function createBoard(cells) {
-    for (i = 0; i < cells; i++) {
-        var cellDiv = document.createElement("div");
-        cellDiv.id = i;
-        cellDiv.classList.add("cellGrid");
-        board.appendChild(cellDiv);
+class CreateBoard {
+    constructor(cells) {
+        this.cells = cells;
+    }
+    create = () => {
+        const board = document.getElementById("gameBoard");
+        for (let i = 0; i < cells; i++) {
+            const cellDiv = document.createElement("div");
+            cellDiv.id = i;
+            cellDiv.classList.add("cellGrid");
+            board.appendChild(cellDiv);
+        }
     }
 }
 
-// Function for find available cell to position objects
-function availableCell() {
-    do {
-        findCell = Math.floor(Math.random() * cells);
+// Blue print for cell object
+class BoardCell {
+    constructor(name, image) {
+        this.name = name;
+        this.image = image;
     }
-    while (arrayCells[findCell] != null);
-    return findCell;
+
+    availableCell = () => {
+        do {
+            findCell = Math.floor(Math.random() * cells);
+        }
+        while (arrayCells[findCell] != null);
+        return findCell;
+    }
 }
 
 // Create walls
-function Wall(name, image) {
-    this.name = name;
-    this.image = image;
-}
-/* */
-Wall.prototype.cellPosition = function() {
-    for (x = 0; x < 15; x++) {
-        findCell = availableCell();
-        arrayCells[findCell] = this.name;
-
-        var myCell = document.getElementById(findCell);
-        myCell.classList.add(this.name);
+class Wall extends BoardCell {
+    constructor(name, image) {
+        super(name, image);
     }
-};
+
+    cellPosition = () => {
+        for (let x = 0; x < 15; x++) {
+            findCell = this.availableCell();
+            arrayCells[findCell] = this.name;
+
+            const myCell = document.getElementById(findCell);
+            myCell.classList.add(this.name);
+        }
+    };
+}
+
 
 //Create Players
-function Player(name, image) {
-    this.name = name;
-    this.image = image;
-    this.life = 100;
-    this.damage = 10;
-    this.defendRate = 5;
-    this.weapon = null;
-}
-
-Player.prototype.cellPosition = function() {
-    findCell = availableCell();
-    arrayCells[findCell] = this.name;
-
-    var myCell = document.getElementById(findCell);
-    myCell.classList.add(this.name);
-
-
-    // function to keep players separate
-    var collisionCell = [findCell - 1, findCell + 1, findCell - 10, findCell + 10];
-
-    collisionCell.forEach(avoidCollision);
-
-    function avoidCollision(collision) {
-        if ((collision >= 0 && collision < cells) && arrayCells[collision] == null) {
-            arrayCells[collision] = "full";
-        }
+class Player extends BoardCell {
+    constructor(name, image) {
+        super(name, image);
+        this.life = 100;
+        this.damage = 10;
+        this.defendRate = 5;
+        this.weapon = null;
     }
-    this.position = findCell;
+
+    cellPosition = () => {
+        findCell = this.availableCell();
+        arrayCells[findCell] = this.name;
+
+        const myCell = document.getElementById(findCell);
+        myCell.classList.add(this.name);
+
+
+        // function to keep players separate
+        const collisionCell = [findCell - 1, findCell + 1, findCell - 10, findCell + 10];
+
+        collisionCell.forEach(avoidCollision);
+
+        function avoidCollision(collision) {
+            if ((collision >= 0 && collision < cells) && arrayCells[collision] == null) {
+                arrayCells[collision] = "full";
+            }
+        }
+        this.position = findCell;
+    }
 }
+
 
 // Create weapon
-function Weapon(name, image, damage) {
-    this.name = name;
-    this.image = image;
-    this.damage = damage;
+class Weapon extends BoardCell {
+    constructor(name, image, damage) {
+        super(name, image);
+        this.name = name;
+        this.image = image;
+        this.damage = damage;
+    }
+    cellPosition = function() {
+        findCell = this.availableCell();
+        arrayCells[findCell] = this.name;
+
+        const myCell = document.getElementById(findCell);
+        myCell.classList.add(this.name);
+    }
 }
 
-Weapon.prototype.cellPosition = function() {
-    findCell = availableCell();
-    arrayCells[findCell] = this.name;
 
-    var myCell = document.getElementById(findCell);
-    myCell.classList.add(this.name);
-}
+// Create objects: Board / Walls / Players / Weapons
+const gameBoard = new CreateBoard(cells);
+const wall = new Wall("wall", "blackWall.svg");
+const player1 = new Player("kakashi", "ninja.svg");
+const player2 = new Player("mightyGuy", "samurai.svg");
+const weapon1 = new Weapon("shuriken", "shuriken.svg", 30);
+const weapon2 = new Weapon("katana", "katana.svg", 35);
+const weapon3 = new Weapon("kunai", "kunai.svg", 15);
+const weapon4 = new Weapon("sai", "sai.svg", 20);
 
-// Create objects
-// walls
-var wall = new Wall("wall", "blackWall.svg");
-// players
-var player1 = new Player("kakashi", "ninja.svg");
-var player2 = new Player("mightyGuy", "samurai.svg");
-// weapons
-var weapon1 = new Weapon("shuriken", "shuriken.svg", 30);
-var weapon2 = new Weapon("katana", "katana.svg", 35);
-var weapon3 = new Weapon("kunai", "kunai.svg", 15);
-var weapon4 = new Weapon("sai", "sai.svg", 20);
-
-// Call functions
-// create game
-createBoard(cells);
-// Set objects position
-// walls
+// Set objects ready for game
+gameBoard.create()
 wall.cellPosition();
-// players
 player1.cellPosition();
 player2.cellPosition();
-// weapons
 weapon1.cellPosition();
 weapon2.cellPosition();
 weapon3.cellPosition();

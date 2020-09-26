@@ -1,30 +1,32 @@
 // variables
-var arrayX = [],
-    arrayY = [];
-var activePlayer, passivePlayer;
-var combat = false;
-var cellContact;
-var cell = $("div#gameBoard > div");
+const cell = $("div#gameBoard > div");
+let arrayX = [];
+let arrayY = [];
+let activePlayer, passivePlayer;
+let combat = false;
+let cellContact;
+let classList;
+
 
 // Movements options
-Player.prototype.moveOptions = function(playerPosition) {
+Player.prototype.movementOption = function(playerPosition) {
     // delete class after player move
-    $("div#gameBoard > div").removeClass("moveOptions");
+    $("div#gameBoard > div").removeClass("movementOption");
 
     //arrays X and Y for movement
     arrayX = [];
     arrayY = [];
+
     //variables for find the position
-    var up = playerPosition - 10;
-    var down = playerPosition + 10;
-    var left = playerPosition - 1;
-    var right = playerPosition + 1;
-    var blocked = false;
-    var xMin = playerPosition - (playerPosition % 10);
-    var xMax = xMin + 9;
+    let up = playerPosition - 10;
+    let down = playerPosition + 10;
+    let left = playerPosition - 1;
+    let right = playerPosition + 1;
+    let blocked = false;
+    const xMin = playerPosition - (playerPosition % 10);
+    const xMax = xMin + 9;
 
-    // Function to check class in specific div
-
+    // Check for class in specific div
     function checkClass() {
         $.each(classList, function(index, cssClass) {
             if (
@@ -40,7 +42,7 @@ Player.prototype.moveOptions = function(playerPosition) {
     // move up to 3 cells
     while (up >= 0 && up >= playerPosition - 30) {
         blocked = false;
-        var classList = $("div#" + up)
+        classList = $("div#" + up)
             .attr("class")
             .split(" ");
 
@@ -49,7 +51,7 @@ Player.prototype.moveOptions = function(playerPosition) {
         if (blocked === true) {
             break;
         } else {
-            $("div#" + up).addClass("moveOptions");
+            $("div#" + up).addClass("movementOption");
             arrayY.push(up);
         }
         up -= 10;
@@ -58,7 +60,7 @@ Player.prototype.moveOptions = function(playerPosition) {
     //move down 3 cells
     while (down <= 99 && down <= playerPosition + 30) {
         blocked = false;
-        var classList = $("div#" + down)
+        classList = $("div#" + down)
             .attr("class")
             .split(" ");
 
@@ -67,7 +69,7 @@ Player.prototype.moveOptions = function(playerPosition) {
         if (blocked === true) {
             break;
         } else {
-            $("div#" + down).addClass("moveOptions");
+            $("div#" + down).addClass("movementOption");
             arrayY.push(down);
         }
         down += 10;
@@ -76,7 +78,7 @@ Player.prototype.moveOptions = function(playerPosition) {
     // move left 3 cells
     while (left >= xMin && left >= playerPosition - 3) {
         blocked = false;
-        var classList = $("div#" + left)
+        classList = $("div#" + left)
             .attr("class")
             .split(" ");
 
@@ -85,7 +87,7 @@ Player.prototype.moveOptions = function(playerPosition) {
         if (blocked === true) {
             break;
         } else {
-            $("div#" + left).addClass("moveOptions");
+            $("div#" + left).addClass("movementOption");
             arrayX.push(left);
         }
         left -= 1;
@@ -94,7 +96,7 @@ Player.prototype.moveOptions = function(playerPosition) {
     // move right 3 cells
     while (right <= xMax && right <= playerPosition + 3) {
         blocked = false;
-        var classList = $("div#" + right)
+        classList = $("div#" + right)
             .attr("class")
             .split(" ");
 
@@ -103,7 +105,7 @@ Player.prototype.moveOptions = function(playerPosition) {
         if (blocked === true) {
             break;
         } else {
-            $("div#" + right).addClass("moveOptions");
+            $("div#" + right).addClass("movementOption");
             arrayX.push(right);
         }
         right += 1;
@@ -112,17 +114,19 @@ Player.prototype.moveOptions = function(playerPosition) {
     return [arrayX, arrayY];
 };
 
+// 
 Player.prototype.moveCell = function(newPosition) {
     // variables for old and new positions
-    var oldCell = document.getElementById(this.position);
+    const oldCell = document.getElementById(this.position);
     oldCell.classList.remove(this.name);
-    var newCell = document.getElementById(newPosition);
+    const newCell = document.getElementById(newPosition);
     newCell.classList.add(this.name);
 
     // find weapons
-    var findFrom = this.position;
-    var findTo = newPosition;
-    findWeapon(findFrom, findTo);
+    const findFrom = this.position;
+    const findTo = newPosition;
+    gameBoard.findWeapon(findFrom, findTo);
+    //findWeapon(findFrom, findTo);
 
     this.position = newPosition;
     cellContact = [
@@ -154,8 +158,8 @@ Player.prototype.moveCell = function(newPosition) {
     } else {
         arrayX = [];
         arrayY = [];
-        cell.removeClass("moveOptions");
-        startCombat();
+        cell.removeClass("movementOption");
+        startFight.adjustFight();
     }
 };
 
@@ -169,31 +173,33 @@ Player.prototype.activePlayer = function() {
         passivePlayer = player1;
     }
     if (combat === false) {
-        activePlayer.moveOptions(this.position);
+        activePlayer.movementOption(this.position);
     }
 };
 
-// player start
+// Player start game
 player1.activePlayer();
 
 // Find weapon function
-function findWeapon(findFrom, findTo) {
+CreateBoard.prototype.findWeapon = function(findFrom, findTo) {
     // Variables
-    var searchCells = findTo - findFrom;
-    var arraySearch = [];
+    const searchCells = findTo - findFrom;
+    const arraySearch = [];
+    let currentWeapon;
+    let newWeapon;
 
     // check div between findFrom and findTo cells
     if (searchCells > 0) {
         // For right side
         if (searchCells <= 3) {
-            for (i = findFrom; i <= findTo; i++) {
+            for (let i = findFrom; i <= findTo; i++) {
                 if (jQuery.inArray(i, arrayX) >= 0) {
                     arraySearch.push(i);
                 }
             }
         } else {
             // for down
-            for (i = findFrom; i <= findTo; i += 10) {
+            for (let i = findFrom; i <= findTo; i += 10) {
                 if (jQuery.inArray(i, arrayY) >= 0) {
                     arraySearch.push(i);
                 }
@@ -202,14 +208,14 @@ function findWeapon(findFrom, findTo) {
     } else {
         // for left
         if (searchCells >= -3) {
-            for (i = findFrom; i >= findTo; i--) {
+            for (let i = findFrom; i >= findTo; i--) {
                 if (jQuery.inArray(i, arrayX) >= 0) {
                     arraySearch.push(i);
                 }
             }
         } else {
             // for up
-            for (i = findFrom; i >= findTo; i -= 10) {
+            for (let i = findFrom; i >= findTo; i -= 10) {
                 if (jQuery.inArray(i, arrayY) >= 0) {
                     arraySearch.push(i);
                 }
@@ -217,10 +223,9 @@ function findWeapon(findFrom, findTo) {
         }
     }
     // check if cells within findFrom and findTo have weapons
-    for (j = 0; j <= arraySearch.length; j++) {
-        var passedCells = $("div#" + arraySearch[j]);
-        var newWeapon;
-        var currentWeapon;
+    for (let j = 0; j < arraySearch.length; j++) {
+        let passedCells = $("div#" + arraySearch[j]);
+
 
         // check classes from passing cell, assign newWeapon value and change player damage
         currentWeapon = activePlayer.weapon;
@@ -250,14 +255,18 @@ function findWeapon(findFrom, findTo) {
     }
 }
 
-// when clicking on possible movement cells
-cell.on("click", function() {
-    var newPosition = parseInt(this.id);
-    if (
-        jQuery.inArray(newPosition, arrayX) >= 0 ||
-        jQuery.inArray(newPosition, arrayY) >= 0
-    ) {
-        cell.removeClass(activePlayer.name);
-        activePlayer.moveCell(newPosition);
-    }
-});
+// On click move cell
+CreateBoard.prototype.movePlayer = function() {
+    cell.on("click", function() {
+        let newPosition = parseInt(this.id);
+        if (
+            jQuery.inArray(newPosition, arrayX) >= 0 ||
+            jQuery.inArray(newPosition, arrayY) >= 0
+        ) {
+            cell.removeClass(activePlayer.name);
+            activePlayer.moveCell(newPosition);
+        }
+    })
+}
+
+gameBoard.movePlayer();
